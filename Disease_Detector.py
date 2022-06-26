@@ -1,22 +1,13 @@
-#Image Operations
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib
-
-#Not so important
 import pandas as pd
-
-#image operation using skimage
 from skimage.color import rgb2gray
 from skimage.transform import rescale, resize, downscale_local_mean
-
-#classification using sklearn
 from sklearn.model_selection import train_test_split
 from skimage import data, color, feature
 from skimage.feature import hog
-
-#load the data
 import glob
 
 def loadimage(arr,name_of_disease):
