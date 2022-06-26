@@ -58,8 +58,8 @@ def FtrExtractHOG(img):
     ftr,_=hog(img, orientations=8, pixels_per_cell=(16, 16),
             cells_per_block=(1, 1), visualize=True, multichannel=False)
     return ftr
-  
-def featureExtraction1(arr):
+
+def featureExtraction(arr):
     arr_feature=[]
     for i in range(np.shape(arr)[0]):
         arr_feature.append(FtrExtractHOG(arr[i]))
@@ -67,8 +67,8 @@ def featureExtraction1(arr):
 
 X_trainp=preprocessing1(X_train)
 X_testp=preprocessing1(X_test)
-X_trainftr=featureExtraction1(X_trainp) 
-X_testftr=featureExtraction1(X_testp)
+X_trainftr=featureExtraction(X_trainp) 
+X_testftr=featureExtraction(X_testp)
 
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score
