@@ -73,7 +73,7 @@ X_testftr=featureExtraction(X_testp)
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score
 
-knn_clf = KNeighborsClassifier(n_jobs=-1, weights='distance', n_neighbors=11)
+knn_clf = KNeighborsClassifier(n_jobs=-1, n_neighbors=11)
 knn_clf.fit(X_trainftr, y_train)
 
 y_knn_pred = knn_clf.predict(X_testftr)
