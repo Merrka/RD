@@ -11,21 +11,14 @@ from skimage.feature import hog
 import glob
 
 def loadimage(arr,name_of_disease):
-    #Because there is not any label in datasets, so you must add the label manually
     label=[]
-    #This is the name of the folder, because this is nested file
     strr = "rgb/"+"Tomato___"+name_of_disease+"/*.JPG"
-    #Load data per folder
     for file in glob.glob(strr):
-        #read an image as array
         img=np.asarray(plt.imread(file))
-        #Append to array
         arr.append(img)
-        #Append the label
         label.append(name_of_disease)
     return arr,label
 
-#the list of data
 healthy=[]
 Bacterial_spot=[]
 Early_blight=[]
@@ -37,7 +30,6 @@ Target_Spot=[]
 Tomato_mosaic_virus=[]
 Tomato_Yellow_Leaf_Curl_Virus=[]
 
-#load the data, loadimage(array,num_of_folder,name_of_disease)
 healthy,label_healthy=loadimage(healthy,"healthy")
 Bacterial_spot,label_Bacterial_spot=loadimage(Bacterial_spot,"Bacterial_spot")
 Early_blight,label_Early_blight=loadimage(Early_blight,"Early_blight")
@@ -73,10 +65,8 @@ def featureExtraction1(arr):
         arr_feature.append(FtrExtractHOG(arr[i]))
     return arr_feature
 
-#Preprocessing
 X_trainp=preprocessing1(X_train)
 X_testp=preprocessing1(X_test)
-#Feature Extraction 
 X_trainftr=featureExtraction1(X_trainp) 
 X_testftr=featureExtraction1(X_testp)
 
